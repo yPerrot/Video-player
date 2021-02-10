@@ -1,14 +1,42 @@
-// import logo from './logo.svg';
-import './App.css';
-import ReactWebMediaPlayer from 'react-web-media-player';
+import React from "react"
+import "./App.css"
+import { VideoPlayer } from "./VideoPlayer.js"
 
-function App() {
-  return (
-    <ReactWebMediaPlayer
-      title="My own video player"
-      video="https://ia801406.us.archive.org/32/items/Route_66_-_an_American_badDream/Route_66_-_an_American_badDream_512kb.mp4"
-    />
-  );
+export default class App extends React.Component { 
+
+	constructor(props) {
+        super(props)
+        this.state = {
+            data_loaded: false,
+            data: [],
+        }
+    }
+
+    componentDidMount() {
+        fetch("https://imr3-react.herokuapp.com/backend")
+        .then( res => res.json())
+        .then( result => {
+            this.setState({
+                data_loaded: true,
+                data: result
+            })
+        })
+    }
+
+	render() {
+        if (this.state.data_loaded) {
+            return (
+                <div>
+                    <VideoPlayer url={this.state.data.Film.file_url} pos={this.state.pos}/>
+                    {/* <VideoPlayer url="../TeamBuilding-2021.mp4" chapters={this.state.data.Chapters}/> */}
+                </div>
+            )
+        } else {
+            return (
+                <p>Loading</p>
+            )
+        }
+
+	}
+
 }
-
-export default App;
