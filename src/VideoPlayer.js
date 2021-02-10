@@ -30,9 +30,9 @@ export class VideoPlayer extends React.Component {
     seek(seconds) {
         console.log("Seek :" + seconds)
         console.log(this.player)
-        return () => {
-          this.player.seek(seconds);
-        };
+        this.player.seek(seconds);
+        // return () => {
+        // };
     }
 
     handleClick(index) {
@@ -53,10 +53,6 @@ export class VideoPlayer extends React.Component {
                 fluid={false}
                 width={500}
             />
-            <button onClick={this.seek(50)} className="mr-3">
-                currentTime = 50
-            </button>
-            {/* <List items={this.props.chapters} onClick={this.handleClick.bind(this)}/> */}
             <List items={this.props.chapters} onClick={this.seek.bind(this)}/>
             </div>
         )
