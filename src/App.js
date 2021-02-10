@@ -27,7 +27,7 @@ export default class App extends React.Component {
         if (this.state.data_loaded) {
             return (
                 <div>
-                    <VideoPlayer url={this.state.data.Film.file_url} pos={this.state.pos}/>
+                    <VideoPlayer url={this.state.data.Film.file_url} chapters={this.state.data.Chapters}/>
                     {/* <VideoPlayer url="../TeamBuilding-2021.mp4" chapters={this.state.data.Chapters}/> */}
                 </div>
             )
