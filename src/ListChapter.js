@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-export class List extends React.Component {
+export class ListChapter extends React.Component {
 
     static propTypes = {
         items: PropTypes.array.isRequired,
@@ -18,7 +18,7 @@ export class List extends React.Component {
         return (
             <ul>
                 {this.props.items.map( (item, index) => (
-                    <ListChapter
+                    <Chapter
                         time={parseInt(item.pos)}
                         title={item.title}
                         key={index}
@@ -30,7 +30,7 @@ export class List extends React.Component {
     }
 }
 
-export class ListChapter extends React.Component {
+export class Chapter extends React.Component {
 
     static propTypes = {
         time: PropTypes.number.isRequired,

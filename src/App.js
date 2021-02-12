@@ -1,6 +1,7 @@
 import React from "react"
 import "./App.css"
 import { VideoPlayer } from "./VideoPlayer.js"
+import { ChatRoom } from "./ChatRoom.js"
 
 export default class App extends React.Component { 
 
@@ -27,8 +28,9 @@ export default class App extends React.Component {
         if (this.state.data_loaded) {
             return (
                 <div>
-                    <VideoPlayer url={this.state.data.Film.file_url} chapters={this.state.data.Chapters}/>
-                    {/* <VideoPlayer url="../TeamBuilding-2021.mp4" chapters={this.state.data.Chapters}/> */}
+                    {/* <VideoPlayer url={this.state.data.Film.file_url} chapters={this.state.data.Chapters}/> */}
+                    <VideoPlayer url="../TeamBuilding-2021.mp4" data={this.state.data}/>
+                    <ChatRoom />
                 </div>
             )
         } else {
