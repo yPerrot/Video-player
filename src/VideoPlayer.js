@@ -66,7 +66,6 @@ export class VideoPlayer extends React.Component {
                 src={this.props.url}
                 fluid={false}
                 width={500}
-                // onTimeChange={this.handleTimeChange()}
             />
             <ListChapter items={this.props.data.Chapters} onClick={this.seek.bind(this)}/>
             <ListKeyWords items={this.state.selectedKeywords} />
