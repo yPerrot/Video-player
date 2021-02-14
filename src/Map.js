@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types"
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'
 import icon from 'leaflet/dist/images/marker-icon.png'
@@ -7,6 +8,11 @@ import L from 'leaflet'
 
 export class Map extends React.Component {
       
+    static propTypes = {
+        waypoints: PropTypes.object.isRequired,
+        onClick: PropTypes.func.isRequired,
+    }
+
     render(props) {
 
         let DefaultIcon = L.icon({

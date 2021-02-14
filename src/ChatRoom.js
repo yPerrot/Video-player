@@ -1,5 +1,4 @@
 import React from "react"
-// import PropTypes from "prop-types"
 import "./ChatRoom.css"
 
 export class ChatRoom extends React.Component {
