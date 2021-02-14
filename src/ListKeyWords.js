@@ -13,7 +13,7 @@ export class ListKeyWords extends React.Component {
 
     render() {
         return (
-            <ul>
+            <>
                 {this.props.items.map( (item, index) => (
                     <KeyWords
                         pos={parseInt(item.pos)}
@@ -21,7 +21,7 @@ export class ListKeyWords extends React.Component {
                         key={index}
                     />
                 ))}
-            </ul>
+            </>
         )
     }
 }

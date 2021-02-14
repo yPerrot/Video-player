@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { ButtonGroup, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 export class ListChapter extends React.Component {
 
@@ -25,6 +25,7 @@ export class ListChapter extends React.Component {
                         title={item.title}
                         key={index}
                         onClick={this.handleClick.bind(this, item.pos)}
+                        index={index}
                         />
                     ))}
                 {/* </ButtonGroup> */}
@@ -37,12 +38,14 @@ export class Chapter extends React.Component {
 
     static propTypes = {
         time: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired
+        title: PropTypes.string.isRequired,
+        idnex: PropTypes.number.isRequired
     };
 
     static defaultProps = {
         time: -1,
-        title: "default Chapter"
+        title: "default Chapter",
+        index: -1
     }
 
     toggle = () => {
@@ -55,7 +58,7 @@ export class Chapter extends React.Component {
         return (
             <>
             {/* <li><button onClick={this.toggle}>{this.props.title}</button></li> */}
-            <Button variant="secondary" onClick={this.toggle}>{this.props.title}</Button>
+            <Button variant="secondary" onClick={this.toggle} size="sm">{this.props.index} : {this.props.title}</Button>
             {/* <Button variant="secondary">Ok</Button> */}
             </>
         );

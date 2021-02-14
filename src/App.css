@@ -19,12 +19,15 @@
     margin: 0 !important;
     width: 35%;
     height: 100%;
+    /* height: auto; */
     float: right;
 }
 
 .video {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
+    /* background-color: grey; */
+    background-color: #454545;
 }
 
 .video-data {
@@ -33,12 +36,17 @@
 }
 
 .chapter {
-    width: 60%;
+    width: 40%;
+    float: left;
+}
+
+.map {
+    width: 20%;
     float: left;
 }
 
 .keyword {
-    width: 40%;
+    width: 30%;
     float: right;
 }
 
@@ -48,4 +56,9 @@
 
 .new-message-input-field {
     height: 100px !important;
+}
+
+.leaflet-container {
+    width: 300px;
+    height: 300px;
 }

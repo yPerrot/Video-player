@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { ListChapter } from "./ListChapter";
 import { ListKeyWords } from "./ListKeyWords";
+import { Map } from "./Map";
 import { Player } from 'video-react';
 
 export class VideoPlayer extends React.Component {
@@ -65,12 +66,11 @@ export class VideoPlayer extends React.Component {
                             this.player = player;
                         }}
                         src={this.props.url}
-                        // fluid={false}
-                        // width={500}
                     />
                 </div>
                 <div class="video-data">
                     <ListChapter items={this.props.data.Chapters} onClick={this.seek.bind(this)}/>
+                    <Map waypoints={this.props.data.Waypoints} onClick={this.seek.bind(this)}/>
                     <ListKeyWords items={this.state.selectedKeywords} />
                 </div>
             </div>
