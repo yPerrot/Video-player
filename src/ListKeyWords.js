@@ -40,11 +40,13 @@ export class KeyWords extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>Time: {Math.trunc(this.props.pos/60)}:{this.props.pos%60}</h2>
-                {this.props.data.map( (item, index) => (
-                    <p><a href={item.url} key={index}>{item.title}</a></p>
-                ))}
+            <div class="keyword">
+                <ul>
+                    <h2>Time: {Math.trunc(this.props.pos/60)}:{this.props.pos%60}</h2>
+                    {this.props.data.map( (item, index) => (
+                        <li><a href={item.url} key={index}>{item.title}</a></li>
+                        ))}
+                </ul>
             </div>
         );
     }

@@ -50,7 +50,7 @@ export class ChatRoom extends React.Component {
 	
 	submitMessage = () => {
 		if (this.state.currentMsg !== "") {
-			if (this.state.name == "") {
+			if (this.state.name === "") {
 				this.setState({
 					name: this.state.currentMsg
 				})
@@ -72,18 +72,20 @@ export class ChatRoom extends React.Component {
 			<div className="messages-container">
 				<ol className="messages-list">
 					{this.state.messages.map((message, i) => (
-						<li key={i} className={`message-item ${ message.name == this.state.name ? "my-message" : "received-message" }`} ><u><b>{message.name}</b></u> {message.moment != undefined?'['+message.moment+']':""} : {message.message} </li>
+						<li key={i} className={`message-item ${ message.name === this.state.name ? "my-message" : "received-message" }`} >
+							<u><b>{message.name}</b></u> {message.moment !== undefined?'['+message.moment+']':""} : {message.message} 
+						</li>
 					))}
 				</ol>
 			</div>
 			<textarea
 				value={this.newMessage}
 				onChange={this.handleMessageChange}
-				placeholder={this.state.name == ""?"Enter you name":"Write message..."}
+				placeholder={this.state.name === ""?"Enter you name":"Write message..."}
 				className="new-message-input-field"
 			/>
 			<button onClick={this.submitMessage} className="send-message-button">
-				{this.state.name == ""?"Validate your name":"Send"}
+				{this.state.name === ""?"Validate your name":"Send"}
 			</button>
 			</div>
 		);

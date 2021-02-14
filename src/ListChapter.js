@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { ButtonGroup, Button } from 'react-bootstrap';
 
 export class ListChapter extends React.Component {
 
@@ -16,16 +17,18 @@ export class ListChapter extends React.Component {
 
     render() {
         return (
-            <ul>
-                {this.props.items.map( (item, index) => (
-                    <Chapter
+            <div class="chapter">
+                {/* <ButtonGroup aria-label="Basic example"> */}
+                    {this.props.items.map( (item, index) => (
+                        <Chapter
                         time={parseInt(item.pos)}
                         title={item.title}
                         key={index}
                         onClick={this.handleClick.bind(this, item.pos)}
-                    />
-                ))}
-            </ul>
+                        />
+                    ))}
+                {/* </ButtonGroup> */}
+            </div>
         )
     }
 }
@@ -50,7 +53,11 @@ export class Chapter extends React.Component {
 
     render() {
         return (
-            <li><button onClick={this.toggle}>{this.props.title}</button></li>
+            <>
+            {/* <li><button onClick={this.toggle}>{this.props.title}</button></li> */}
+            <Button variant="secondary" onClick={this.toggle}>{this.props.title}</Button>
+            {/* <Button variant="secondary">Ok</Button> */}
+            </>
         );
     }
 }

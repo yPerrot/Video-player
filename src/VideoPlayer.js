@@ -58,17 +58,21 @@ export class VideoPlayer extends React.Component {
 
     render() {
         return (
-            <div>
-            <Player
-                ref={player => {
-                    this.player = player;
-                }}
-                src={this.props.url}
-                fluid={false}
-                width={500}
-            />
-            <ListChapter items={this.props.data.Chapters} onClick={this.seek.bind(this)}/>
-            <ListKeyWords items={this.state.selectedKeywords} />
+            <div class="Video-Player">
+                <div className="video">
+                    <Player
+                        ref={player => {
+                            this.player = player;
+                        }}
+                        src={this.props.url}
+                        // fluid={false}
+                        // width={500}
+                    />
+                </div>
+                <div class="video-data">
+                    <ListChapter items={this.props.data.Chapters} onClick={this.seek.bind(this)}/>
+                    <ListKeyWords items={this.state.selectedKeywords} />
+                </div>
             </div>
         )
     }
