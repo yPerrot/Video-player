@@ -6,8 +6,7 @@ beforeEach(() => {
       return Promise.resolve({
           status: 200,
           json: () => {
-              return Promise.resolve([
-                {
+              return Promise.resolve({
                   Film : {
                     file_url : "https://ia801406.us.archive.org/32/items/Route_66_-_an_American_badDream/Route_66_-_an_American_badDream_512kb.mp4",
                     title : "Title",
@@ -38,14 +37,13 @@ beforeEach(() => {
                       ]
                     },
                   ]
-                }
-              ])
+                })
           }
       })
   })
 })
 
-afterAll(() =>{
+afterEach(() =>{
   fetch.mockClear();
 });
 
@@ -72,14 +70,14 @@ test("does not contains chat room after initial render", () => {
   expect(chatRoom).toBeNull();
 });
 
-// test("contains video player after async fetch", async () => {
-//   const { container } = render(<App />);
-//   const videoPlayer = await waitForElement(() => container.querySelector(`[class="Video-Player"]`));
-//   expect(videoPlayer).toBeInTheDocument();
-// });
+test("contains video player after async fetch", async () => {
+  const { container } = render(<App />);
+  const videoPlayer = await waitForElement(() => container.querySelector(`[class="Video-Player"]`));
+  expect(videoPlayer).toBeInTheDocument();
+});
 
-// test("contains chat room after async fetch", async () => {
-//   const { container } = render(<App />);
-//   const chatRoom = await waitForElement(() => container.querySelector(`[class="chat-room-container"]`));
-//   expect(chatRoom).toBeInTheDocument();
-// });
+test("contains chat room after async fetch", async () => {
+  const { container } = render(<App />);
+  const chatRoom = await waitForElement(() => container.querySelector(`[class="chat-room-container"]`));
+  expect(chatRoom).toBeInTheDocument();
+});
