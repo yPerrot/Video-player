@@ -68,24 +68,24 @@ export class ChatRoom extends React.Component {
 	render() {
 		return (
 			<div className="chat-room-container">
-			<div className="messages-container">
-				<ol className="messages-list">
-					{this.state.messages.map((message, i) => (
-						<li key={i} className={`message-item ${ message.name === this.state.name ? "my-message" : "received-message" }`} >
-							<u><b>{message.name}</b></u> {message.moment !== undefined?'['+message.moment+']':""} : {message.message} 
-						</li>
-					))}
-				</ol>
-			</div>
-			<textarea
-				value={this.newMessage}
-				onChange={this.handleMessageChange}
-				placeholder={this.state.name === ""?"Enter you name":"Write message..."}
-				className="new-message-input-field"
-			/>
-			<button onClick={this.submitMessage} className="send-message-button">
-				{this.state.name === ""?"Validate your name":"Send"}
-			</button>
+				<div className="messages-container">
+					<ol className="messages-list">
+						{this.state.messages.map((message, i) => (
+							<li key={i} className={`message-item ${ message.name === this.state.name ? "my-message" : "received-message" }`} >
+								<u><b>{message.name}</b></u> {message.moment !== undefined?'['+message.moment+']':""} : {message.message} 
+							</li>
+						))}
+					</ol>
+				</div>
+				<textarea
+					value={this.newMessage}
+					onChange={this.handleMessageChange}
+					placeholder={this.state.name === ""?"Enter you name":"Write message..."}
+					className="new-message-input-field"
+				/>
+				<button onClick={this.submitMessage} className="send-message-button">
+					{this.state.name === ""?"Validate your name":"Send"}
+				</button>
 			</div>
 		);
 	}
