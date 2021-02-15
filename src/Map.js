@@ -9,7 +9,7 @@ import L from 'leaflet'
 export class Map extends React.Component {
       
     static propTypes = {
-        waypoints: PropTypes.object.isRequired,
+        waypoints: PropTypes.array.isRequired,
         onClick: PropTypes.func.isRequired,
     }
 
@@ -23,7 +23,7 @@ export class Map extends React.Component {
         L.Marker.prototype.options.icon = DefaultIcon;
 
         return(
-            <div class="map">
+            <div className="map">
                 <MapContainer center={[this.props.waypoints[0].lat, this.props.waypoints[0].lng]} zoom={4} scrollWheelZoom={false}>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

@@ -40,7 +40,6 @@ export class VideoPlayer extends React.Component {
         const a = kw.filter(e => e.pos > time)
 
         if (a.length > 0) {
-            console.log(kw.indexOf(a[0]))
             this.setState({
                 selectedKeywords: [kw[kw.indexOf(a[0]) - 1]]
             })
@@ -53,13 +52,12 @@ export class VideoPlayer extends React.Component {
     }
 
     handleClick(index) {
-        console.log("VideoPlayer : " + index)
         this.seek(index)
     }
 
     render() {
         return (
-            <div class="Video-Player">
+            <div className="Video-Player">
                 <div className="video">
                     <Player
                         ref={player => {
@@ -68,7 +66,7 @@ export class VideoPlayer extends React.Component {
                         src={this.props.url}
                     />
                 </div>
-                <div class="video-data">
+                <div className="video-data">
                     <ListChapter items={this.props.data.Chapters} onClick={this.seek.bind(this)}/>
                     <Map waypoints={this.props.data.Waypoints} onClick={this.seek.bind(this)}/>
                     <ListKeyWords items={this.state.selectedKeywords} />

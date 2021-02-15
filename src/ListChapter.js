@@ -15,7 +15,7 @@ export class ListChapter extends React.Component {
 
     render() {
         return (
-            <div class="chapter">
+            <div className="chapter">
                 {this.props.items.map( (item, index) => (
                     <Chapter
                     time={parseInt(item.pos)}
@@ -35,7 +35,7 @@ export class Chapter extends React.Component {
     static propTypes = {
         time: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
-        idnex: PropTypes.number.isRequired
+        index: PropTypes.number.isRequired
     };
 
     static defaultProps = {
