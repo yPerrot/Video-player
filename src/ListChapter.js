@@ -4,11 +4,13 @@ import { Button } from 'react-bootstrap';
 
 export class ListChapter extends React.Component {
 
+    // Définit les props à envoyer au composant ListChapter
     static propTypes = {
         items: PropTypes.array.isRequired,
         onClick: PropTypes.func,
     }
 
+    // Fonction de gestion des cliques qui sera envoyer au Chapter
     handleClick(index) {
         this.props.onClick(index)
     }
@@ -32,6 +34,7 @@ export class ListChapter extends React.Component {
 
 export class Chapter extends React.Component {
 
+    // Définit les props à envoyer au composant Chapter
     static propTypes = {
         time: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
@@ -44,14 +47,10 @@ export class Chapter extends React.Component {
         index: -1
     }
 
-    toggle = () => {
-        this.props.onClick(this)
-    }
-
     render() {
         return (
             <>
-            <Button variant="secondary" onClick={this.toggle} size="sm">{this.props.index} : {this.props.title}</Button>
+            <Button variant="secondary" onClick={() => this.props.onClick(this)} size="sm">{this.props.index} : {this.props.title}</Button>
             </>
         );
     }

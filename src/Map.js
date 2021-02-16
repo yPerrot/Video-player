@@ -7,13 +7,14 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png'
 import L from 'leaflet'
 
 export class Map extends React.Component {
-      
+    
+    // Définit les props à envoyer au composant Map
     static propTypes = {
         waypoints: PropTypes.array.isRequired,
         onClick: PropTypes.func.isRequired,
     }
 
-    render(props) {
+    render() {
 
         let DefaultIcon = L.icon({
             iconUrl: icon,

@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 export class ListKeyWords extends React.Component {
 
+    // Définit les props à envoyer au composant ListKeyWords
     static propTypes = {
         items: PropTypes.array.isRequired,
     }
@@ -28,6 +29,7 @@ export class ListKeyWords extends React.Component {
 
 export class KeyWords extends React.Component {
 
+    // Définit les props à envoyer au composant KeyWords
     static propTypes = {
         pos: PropTypes.number.isRequired,
         data: PropTypes.array.isRequired

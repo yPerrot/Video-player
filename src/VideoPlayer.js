@@ -7,20 +7,22 @@ import { Player } from 'video-react';
 
 export class VideoPlayer extends React.Component {
 
-	constructor(props) {
+    constructor(props) {
         super(props)
         this.state = {
             selectedKeywords: []
         }
-
+        
         this.seek = this.seek.bind(this);
     }
-
+    
+    // Définit les props à envoyer au composant VideoPlayer
     static propTypes = {
         data: PropTypes.object.isRequired,
         url: PropTypes.string.isRequired,
     }
     
+    // Fonction pour permetre de changer le timer de la vidéo
     seek(seconds) {
         this.player.seek(seconds);
     }
@@ -29,6 +31,7 @@ export class VideoPlayer extends React.Component {
         this.player.subscribeToStateChange(this.handleStateChange.bind(this));
     }
 
+    // Mets à jours les états du composant ainsi que les mots clefs à afficher
     handleStateChange(state) {
         this.setState({
             player: state
@@ -49,10 +52,6 @@ export class VideoPlayer extends React.Component {
             })
         }
 
-    }
-
-    handleClick(index) {
-        this.seek(index)
     }
 
     render() {

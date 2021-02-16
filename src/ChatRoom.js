@@ -3,6 +3,7 @@ import "./ChatRoom.css"
 
 export class ChatRoom extends React.Component {
 
+	// Initialisation des états lié  au composant ChatRoom
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -16,6 +17,7 @@ export class ChatRoom extends React.Component {
 		this.ws = new WebSocket(this.URL);
 	}
 	
+	// Initialisation et mise en place des évènement lié au websocket
 	componentDidMount() {
 
 		this.ws.onopen = () => {
@@ -43,12 +45,16 @@ export class ChatRoom extends React.Component {
 		
 	}
 
+	// Récupère le message entrée par l'utilisateur
 	handleMessageChange = (event) => {
 		this.setState({ currentMsg: event.target.value });
 	}
 	
 	submitMessage = () => {
+		// Ne fait rien si le textarea est vide
 		if (this.state.currentMsg !== "") {
+
+			// La première entrée est le nom de l'utilisateur, les autres sont des messages
 			if (this.state.name === "") {
 				this.setState({
 					name: this.state.currentMsg
@@ -58,6 +64,7 @@ export class ChatRoom extends React.Component {
 				this.ws.send(JSON.stringify(message));
 			}
 
+			// Efface le message du textarea lors de l'envoie (à améliorer)
 			Array.from(document.querySelectorAll("textarea")).forEach(
 				input => (input.value = "")
 			);
@@ -71,6 +78,7 @@ export class ChatRoom extends React.Component {
 				<div className="messages-container">
 					<ol className="messages-list">
 						{this.state.messages.map((message, i) => (
+							// Change le couleur du message si émit par l'utilisateur, ne gère par l'historique si la page est actualisée
 							<li key={i} className={`message-item ${ message.name === this.state.name ? "my-message" : "received-message" }`} >
 								<u><b>{message.name}</b></u> {message.moment !== undefined?'['+message.moment+']':""} : {message.message} 
 							</li>

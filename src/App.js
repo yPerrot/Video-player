@@ -13,6 +13,7 @@ export default class App extends React.Component {
         }
     }
 
+    // Récupère les données depuis le serveur lorsque le composant est chargé
     componentDidMount() {
         fetch("https://imr3-react.herokuapp.com/backend")
         .then( res => res.json())
@@ -24,6 +25,7 @@ export default class App extends React.Component {
         })
     }
 
+    // Si les données ont été chargées, affiche les composants souhaité, sinon affiche du texte
 	render() {
         if (this.state.data_loaded) {
             return (
